@@ -1,0 +1,189 @@
+/* ================================
+   ACF Filterable Gallery Widget v3
+   ================================ */
+
+/* Filter Bar */
+.gallery-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-bottom: 32px;
+}
+
+/* Underline Style */
+.gallery-filters.style-underline {
+    border-bottom: 1px solid #ddd;
+}
+
+.filter-btn.style-underline {
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    padding: 10px 0;
+    margin-bottom: -1px;
+    cursor: pointer;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: color 0.2s, border-color 0.2s;
+    color: #999;
+}
+
+.filter-btn.style-underline.active,
+.filter-btn.style-underline:hover {
+    color: #222;
+    border-bottom-color: #222;
+}
+
+/* Pill Style */
+.filter-btn.style-pill {
+    background: transparent;
+    border: 1px solid #ddd;
+    border-radius: 999px;
+    padding: 8px 20px;
+    cursor: pointer;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all 0.2s;
+    color: #999;
+}
+
+.filter-btn.style-pill.active,
+.filter-btn.style-pill:hover {
+    color: #222;
+    border-color: #222;
+    background: #222;
+    color: #fff;
+}
+
+/* Minimal Style */
+.filter-btn.style-minimal {
+    background: none;
+    border: none;
+    padding: 6px 0;
+    cursor: pointer;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: opacity 0.2s;
+    color: #bbb;
+    position: relative;
+}
+
+.filter-btn.style-minimal::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: #222;
+    transition: width 0.3s ease;
+}
+
+.filter-btn.style-minimal.active,
+.filter-btn.style-minimal:hover {
+    color: #222;
+}
+
+.filter-btn.style-minimal.active::after {
+    width: 100%;
+}
+
+/* Gallery Items */
+.gallery-item {
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    display: block;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+/* Overlay */
+.gallery-overlay {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+}
+
+.gallery-overlay .overlay-icon {
+    width: 32px;
+    height: 32px;
+    color: #fff;
+    stroke: #fff;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover .overlay-icon {
+    transform: scale(1.1);
+}
+
+.gallery-item-label {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    padding: 0 12px;
+    letter-spacing: 0.5px;
+}
+
+/* Anchor reset for lightbox */
+.gallery-item a.glightbox {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0;
+}
+
+.gallery-item a.glightbox + img,
+.gallery-item > a.glightbox ~ img {
+    pointer-events: none;
+}
+
+/* Fix: image inside anchor */
+.gallery-item {
+    position: relative;
+}
+
+.gallery-item a.glightbox {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: block;
+}
+
+/* Isotope transition handled by JS natively */
+
+/* Responsive */
+@media (max-width: 767px) {
+    .gallery-filters {
+        gap: 14px;
+    }
+    .filter-btn.style-pill {
+        padding: 6px 14px;
+    }
+}
