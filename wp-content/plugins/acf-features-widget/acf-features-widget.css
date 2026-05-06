@@ -1,0 +1,55 @@
+/* ACF Features Widget v1.2 — base styles (Elementor overrides via selectors) */
+
+.acf-features-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.acf-feat-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* ── Icon ── */
+.acf-feat-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 18px;
+    line-height: 1;
+}
+
+.acf-feat-icon .dashicons {
+    width: 1em;
+    height: 1em;
+    font-size: inherit;
+}
+
+.acf-feat-icon svg {
+    width: 1em;
+    height: 1em;
+}
+
+/* ── Image ── */
+.acf-feat-image {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.acf-feat-image img {
+    display: block;
+    width: 40px;
+    height: auto;
+    object-fit: contain;
+}
+
+/* ── Label ── */
+.acf-feat-label {
+    font-size: 14px;
+    line-height: 1.4;
+}
